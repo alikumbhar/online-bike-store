@@ -1,0 +1,27 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+$route['default_controller'] = 'home';
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;
+$route['login'] = 'auth/login';
+$route['register'] = 'auth/register';
+$route['logout'] = 'auth/logout';
+$route['cart'] = 'cart/index';
+$route['cart/add/(:num)'] = 'cart/add/$1';
+$route['cart/remove/(:num)'] = 'cart/remove/$1';
+$route['cart/empty'] = 'cart/empty_cart';
+$route['checkout'] = 'checkout/index';
+$route['checkout/place'] = 'checkout/place_order';
+$route['order/confirmation/(:num)'] = 'orders/confirmation/$1';
+$route['orders'] = 'orders/index';
+$route['dashboard'] = 'account/index';
+$route['profile'] = 'account/profile';
+$route['profile/update'] = 'account/update_profile';
+$route['contact'] = 'contact/index';
+$route['admin'] = 'admin/index';
+$route['admin/products'] = 'admin/products';
+$route['admin/products/add'] = 'admin/add_product';
+$route['admin/products/edit/(:num)'] = 'admin/edit_product/$1';
+$route['admin/products/delete/(:num)'] = 'admin/delete_product/$1';
+$route['admin/orders'] = 'admin/orders';
+$route['admin/orders/status/(:num)'] = 'admin/update_order_status/$1';

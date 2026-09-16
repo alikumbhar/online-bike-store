@@ -1,0 +1,4 @@
+{
+  "require": {"codeigniter/framework": "3.1.13"},
+  "config": {"vendor-dir": "vendor"}
+}

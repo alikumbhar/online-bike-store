@@ -1,0 +1,26 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+$config['base_url'] = 'http://localhost/re-bike-app/';
+$config['index_page'] = '';
+$config['uri_protocol'] = 'REQUEST_URI';
+$config['encryption_key'] = 'CHANGE_THIS_TO_A_LONG_RANDOM_SECRET';
+$config['sess_driver'] = 'database';
+$config['sess_cookie_name'] = 'bike_session';
+$config['sess_expiration'] = 7200;
+$config['sess_save_path'] = 'ci_sessions';
+$config['cookie_secure'] = FALSE;
+$config['csrf_protection'] = TRUE;
+$config['csrf_token_name'] = 'csrf_test_name';
+$config['csrf_cookie_name'] = 'csrf_cookie_name';
+$config['global_xss_filtering'] = FALSE;
+$config['compress_output'] = FALSE;
+$config['language'] = 'english';
+$config['charset'] = 'UTF-8';
+$config['enable_hooks'] = FALSE;
+$config['subclass_prefix'] = 'MY_';
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
+$config['enable_query_strings'] = FALSE;
+$config['allow_get_array'] = TRUE;
+$config['enable_hooks'] = FALSE;
+$config['log_path'] = 'E:\xampp\htdocs\re-bike-app\application\logs';
+$config['log_threshold'] = 1;
