@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$config['base_url'] = 'http://localhost/re-bike-app/';
+$config['base_url'] = getenv('BASE_URL') ?: 'http://localhost:8080/';
 $config['index_page'] = '';
 $config['uri_protocol'] = 'REQUEST_URI';
-$config['encryption_key'] = 'CHANGE_THIS_TO_A_LONG_RANDOM_SECRET';
+$config['encryption_key'] = getenv('ENCRYPTION_KEY') ?: 'CHANGE_THIS_TO_A_LONG_RANDOM_SECRET';
 $config['sess_driver'] = 'database';
 $config['sess_cookie_name'] = 'bike_session';
 $config['sess_expiration'] = 7200;
@@ -22,5 +22,5 @@ $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 $config['enable_query_strings'] = FALSE;
 $config['allow_get_array'] = TRUE;
 $config['enable_hooks'] = FALSE;
-$config['log_path'] = 'E:\xampp\htdocs\re-bike-app\application\logs';
+$config['log_path'] = getenv('LOG_PATH') ?: (FCPATH . 'application/logs');
 $config['log_threshold'] = 1;

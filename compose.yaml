@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: bike-app
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      - DB_HOST=database
+      - DB_NAME=bike_shop
+      - DB_USER=bike_user
+      - DB_PASSWORD=${DB_PASSWORD:-bike_pass}
+    depends_on:
+      - database
+    volumes:
+      - ./application/logs:/var/www/html/application/logs
+
+  database:
+    image: mysql:8.0
+    container_name: bike-db
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD:-root}
+      - MYSQL_DATABASE=bike_shop
+      - MYSQL_USER=bike_user
+      - MYSQL_PASSWORD=${DB_PASSWORD:-bike_pass}
+    volumes:
+      - dbdata:/var/lib/mysql
+
+volumes:
+  dbdata:

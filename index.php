@@ -1,4 +1,3 @@
-```php
 <?php
 
 /*
@@ -15,6 +14,14 @@ if (!defined('ENVIRONMENT')) {
         'ENVIRONMENT',
         isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development'
     );
+}
+
+
+if (PHP_SAPI === 'cli' && !isset($_SERVER['CI_ENV']) && isset($argv) && in_array('-e', $argv, true)) {
+    $idx = array_search('-e', $argv, true);
+    if (isset($argv[$idx + 1])) {
+        define('ENVIRONMENT', $argv[$idx + 1]);
+    }
 }
 
 
@@ -263,3 +270,4 @@ define('VIEWPATH', $view_folder);
 
 require_once BASEPATH . 'core/CodeIgniter.php';
 
+?>
