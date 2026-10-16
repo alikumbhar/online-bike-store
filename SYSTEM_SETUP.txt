@@ -13,4 +13,4 @@ contact for more: https://linkedin.com/in/alikumbhar
 
 
 
-for run on docker simple go to the docker and run this command: docker-compose up
+for run on docker simple go to the CLI and run this command: docker-compose up
