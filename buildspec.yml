@@ -1,0 +1,33 @@
+version: 0.2
+
+env:
+  parameter-store:
+    DOCKER_REGISTRY_USERNAME: /online-bike-store/docker-credentials/username
+    DOCKER_REGISTRY_PASSWORD: /online-bike-store/docker-credentials/password
+    DOCKER_REGISTRY_URL: /online-bike-store/docker-registry/url
+
+phases:
+  install:
+    commands:
+      - echo "Checking Docker version..."
+      - docker --version
+  pre_build:
+    commands:
+      - echo "Logging into Docker registry..."
+      - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin "$DOCKER_REGISTRY_URL"
+  build:
+    commands:
+      - echo "Building Docker image..."
+      - docker build -t "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/online-bike-store:latest" .
+      - docker push "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/online-bike-store:latest"
+  post_build:
+    commands:
+      - echo "Build completed successfully!"
+      - echo "Updating appspec.yml with image tag..."
+      - sed -i "s|IMAGE_URI|$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/online-bike-store:latest|g" docker-compose.yml
+
+artifacts:
+  files:
+    - appspec.yml
+    - scripts/**/*
+    - docker-compose.yml
