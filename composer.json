@@ -2,11 +2,9 @@
     "name": "alikumbhar/online-bike-store",
     "description": "Online Bike Store Management System built with CodeIgniter 3",
     "license": "proprietary",
-
     "require": {
-        "codeigniter/framework": "3.1.13"
+        "codeigniter/framework": "^3.1"
     },
-
     "config": {
         "vendor-dir": "vendor"
     }
