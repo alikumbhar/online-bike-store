@@ -13,7 +13,7 @@ NETWORK_NAME="bike-network"
 AWS_REGION="${AWS_REGION:-us-east-2}"
 
 DB_IMAGE="mysql:8.0"
-APP_IMAGE="alikumbhar/online-bike-store:01"
+APP_IMAGE="alikumbhar/online-bike-store:latest"
 
 # AWS SSM Parameter Store paths
 DB_PASSWORD_PARAM="/bike-shop/DB_PASSWORD"
